@@ -1,0 +1,317 @@
+/* Dynamic Media Video Player Styles */
+.dynamic-media-video-wrapper {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dynamic-media-video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Control bar styles */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 20px 15px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.dynamic-media-video-wrapper:hover .video-controls {
+    opacity: 1;
+}
+
+/* Button hover effects */
+.play-pause-btn:hover,
+.volume-btn:hover,
+.speed-btn:hover,
+.fullscreen-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.speed-btn:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+    border-color: #FF0000;
+}
+
+/* Speed dropdown styles */
+.speed-container {
+    position: relative;
+    display: inline-block;
+}
+
+.speed-dropdown {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 4px 0;
+    min-width: 80px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+}
+
+.speed-option {
+    padding: 6px 12px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.speed-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.speed-option.active {
+    background-color: rgba(255, 0, 0, 0.3);
+    color: #FF0000;
+}
+
+/* Progress bar styles */
+.progress-container {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    margin: 0 10px;
+}
+
+.progress-container:hover {
+    height: 8px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #FF0000;
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.progress-handle {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #FF0000;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-container:hover .progress-handle {
+    opacity: 1;
+}
+
+/* Volume slider styles */
+.volume-slider {
+    width: 60px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #FF0000;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #FF0000;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Play button overlay */
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.video-play-btn:hover {
+    background: rgba(0,0,0,0.7);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Time display */
+.time-display {
+    color: white;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    min-width: 100px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Volume container */
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .dynamic-media-video-wrapper {
+        border-radius: 0;
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    .video-controls {
+        padding: 15px 10px 10px;
+        gap: 8px;
+    }
+    
+    .time-display {
+        font-size: 12px;
+        min-width: 80px;
+    }
+    
+    .volume-slider {
+        width: 40px;
+    }
+    
+    .video-play-btn {
+        width: 80px;
+        height: 80px;
+        font-size: 48px;
+    }
+    
+    .speed-dropdown {
+        min-width: 70px;
+    }
+    
+    .speed-option {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Fullscreen styles */
+.dynamic-media-video-wrapper:fullscreen {
+    background-color: #000;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dynamic-media-video-wrapper:fullscreen video {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    max-width: 100vw;
+    object-fit: contain;
+}
+
+/* Loading state */
+.dynamic-media-video-wrapper.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #FF0000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 5;
+}
+
+.portrait video{
+    max-height: 700px;
+}
+
+/* Portrait video controls layout */
+.portrait .video-controls {
+    flex-wrap: wrap !important;
+    padding: 15px 10px 10px !important;
+    gap: 8px !important;
+}
+
+.portrait .progress-container {
+    order: -1 !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    margin: 0 0 10px 0 !important;
+}
+
+/* Arrange remaining controls in a row */
+.portrait .play-pause-btn,
+.portrait .time-display,
+.portrait .volume-container,
+.portrait .speed-container,
+.portrait .fullscreen-btn {
+    flex: 0 0 auto !important;
+}
+
+.portrait .time-display {
+    min-width: 80px !important;
+    font-size: 12px !important;
+}
+
+.portrait .volume-slider {
+    width: 40px !important;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
